@@ -1,0 +1,18 @@
+Predict_shear_and_compression_wave_travel_times/
+│
+├── app.py                 # Main entry/Home page
+├── requirements.txt       # <-- Place it here in the root folder!
+│
+└── pages/
+    ├── 1_Preprocessing.py # Sub-page 1 (Reads from the same environment)
+    └── 2_Validation.py      # Sub-page 2 (Reads from the same environment)
+
+numpy
+pandas
+openpyxl
+scipy
+seaborn
+matplotlib
+plotly
+scikit-learn
+streamlit
