@@ -9,6 +9,16 @@ import streamlit as st
 import plotly.express as px
 import plotly.figure_factory as ff  
 import sklearn.metrics as metrics
+
+st.html(
+    """
+    <style>
+    .stApp{
+        background-color: #FFFFFF;
+    }
+    </style>    
+"""
+)
 st.title("ML based Prediction of Shear Wave and Compression Wave Travel Times")
 st.subheader("Introduction")
 intro_text="""
