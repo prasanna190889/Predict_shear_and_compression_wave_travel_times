@@ -26,6 +26,24 @@ Petroleum engineers leverage compressional sonic logs to analyze wellbore stabil
 </p>
 """
 st.markdown(background_text, unsafe_allow_html=True)
+
+st.subheader("Challenge")
+challenge_text="""
+<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> Wireline and logging-while-drilling (LWD) sonic tools offer direct measurements of P-wave travel times. 
+    However, despite delivering the high-resolution data essential for formation evaluation, direct sonic logging incurs substantial financial costs and requires extra rig time. 
+    Additionally, prolonged open-hole exposure in shaly formations during these operations can jeopardize wellbore stability, elevating the risks of borehole collapse and formation damage. 
+    Machine learning addresses these challenges by accurately predicting compressional velocities from extensive datasets, enabling the reliable reconstruction of missing sonic logs through the correlation of existing petrophysical well data.
+</p>
+"""
+st.markdown(challenge_text, unsafe_allow_html=True)
+
+st.subheader("Objective")
+objective_text="""
+<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> To provide an user flexibility to predict shear and compression wave travel times by 
+    varying petrophysical well data. 
+</p>
+"""
+st.markdown(objective_text, unsafe_allow_html=True)
 #uploaded_file = st.file_uploader("Upload your well log data in Excel format", type=["xlsx"])
 
 FILE_ID = "16pEh2CX7mCW80TnAeP0WgmMIxgcbiadT"
@@ -75,8 +93,14 @@ if uploaded_file is not None:
         SVR_model.fit(X_train, y_train)
         y_pred_train = SVR_model.predict(X_train)
         y_pred_test = SVR_model.predict(X_test)
-        st.subheader("Run predictions on Custom Data Input")
-        st.write("Adjust the features below to view the predicted shear wave and compression wave travel times based on the trained model.")
+        st.subheader("Results")
+        #st.write("Adjust the features below to view the predicted shear wave and compression wave travel times based on the trained model.")
+        results_text="""
+        <p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> Adjust the petrophysical well data below to predict 
+        shear wave and compression wave travel times based on the trained model. 
+        </p>
+        """
+        st.markdown(results_text, unsafe_allow_html=True)
         depth_min, depth_max = float(X_raw['Depth'].min()), float(X_raw['Depth'].max())
         res_min, res_max = float(X_raw['Resistivity'].min()), float(X_raw['Resistivity'].max())
         gr_min, gr_max = float(X_raw['Gamma Ray'].min()), float(X_raw['Gamma Ray'].max())
