@@ -13,7 +13,7 @@ import sklearn.metrics as metrics
 st.title("ML based Prediction of Shear Wave and Compression Wave Travel Times")
 st.subheader("Introduction")
 intro_text="""
-<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">
+<p style="text-align: justify; font-size: 15px; line-height: 1.6;">
     The application demonstrates the use of Machine Learning (ML) models to predict shear wave and compression wave travel times.
 </p>
 """
@@ -21,7 +21,7 @@ st.markdown(intro_text, unsafe_allow_html=True)
 #st.write("The application demonstrates the use of Machine Learning (ML) models to predict shear wave and compression wave travel times. ")
 st.subheader("Background")
 background_text="""
-<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">Geologists, geophysicists, petrophysicists, and petroleum engineers rely heavily on compressional sonic logs for subsurface characterization.
+<p style="text-align: justify; font-size: 15px; line-height: 1.6;">Geologists, geophysicists, petrophysicists, and petroleum engineers rely heavily on compressional sonic logs for subsurface characterization.
 These logs measure acoustic compressional (P-wave) and shear (S-wave) travel times through the subsurface, offering key data on formation lithology, porosity, and mechanical properties.
 Petroleum engineers leverage compressional sonic logs to analyze wellbore stability, identify fractures, and optimize drilling operations in real time.
 </p>
@@ -30,7 +30,7 @@ st.markdown(background_text, unsafe_allow_html=True)
 
 st.subheader("Challenge")
 challenge_text="""
-<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> Wireline and logging-while-drilling (LWD) sonic tools offer direct measurements of P-wave travel times. 
+<p style="text-align: justify; font-size: 15px; line-height: 1.6;"> Wireline and logging-while-drilling (LWD) sonic tools offer direct measurements of P-wave travel times. 
     However, despite delivering the high-resolution data essential for formation evaluation, direct sonic logging incurs substantial financial costs and requires extra rig time. 
     Additionally, prolonged open-hole exposure in shaly formations during these operations can jeopardize wellbore stability, elevating the risks of borehole collapse and formation damage. 
     Machine learning addresses these challenges by accurately predicting compressional velocities from extensive datasets, enabling the reliable reconstruction of missing sonic logs through the correlation of existing petrophysical well data.
@@ -40,7 +40,7 @@ st.markdown(challenge_text, unsafe_allow_html=True)
 
 st.subheader("Objective")
 objective_text="""
-<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> To provide an user flexibility to predict shear and compression wave travel times by 
+<p style="text-align: justify; font-size: 15px; line-height: 1.6;"> To provide an user flexibility to predict shear and compression wave travel times by 
     varying petrophysical well data. 
 </p>
 """
@@ -48,7 +48,7 @@ st.markdown(objective_text, unsafe_allow_html=True)
 
 st.subheader("Methodology")
 methodology_text="""
-<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">
+<p style="text-align: justify; font-size: 15px; line-height: 1.6;">
     <ul style="margin-top: 5px; padding-left: 20px;">
         <li><strong>Data Preprocessing:</strong> Preprocess the data for implementation of ML model. Check for details on our <a href="/Preprocessing" target="_blank" style="color: #0066cc; font-weight: bold;"> Preprocessing Page</a>.</li>
         <li><strong>Model Selection and Validation:</strong> Select a ML model and calculate the following:
@@ -114,7 +114,7 @@ if uploaded_file is not None:
         st.subheader("Results")
         #st.write("Adjust the features below to view the predicted shear wave and compression wave travel times based on the trained model.")
         results_text="""
-        <p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> You can adjust the petrophysical well data by using the sliders below to predict 
+        <p style="text-align: justify; font-size: 15px; line-height: 1.6;"> You can adjust the petrophysical well data by using the sliders below to predict 
         shear wave and compression wave travel times. 
         </p>
         """
@@ -174,7 +174,6 @@ footer_html="""
     margin: 0 0 20px 0;
     font-size: 14px;
     text-align: left;
-    color: #333333;
 }
 
 .reference-box{
@@ -187,7 +186,6 @@ footer_html="""
 .reference-title{
     font-size: 14px;
     font-weight: bold;
-    color: #333333;
     margin-bottom: 8px;
 
 }
@@ -196,7 +194,6 @@ footer_html="""
 .reference-item a,
 .reference-item span{
     font-size: 10px !important;
-    color: #555555;
     line-height: 1.5;
 }
 .reference-item{
@@ -213,13 +210,13 @@ footer_html="""
         </p>
         <div class="reference-title">References</div>
         <p class="reference-item"> 1. Belyadi, H., & Haghighat, A. (2021).
-            <a href="https://books.google.co.in/books?id=MjoEEAAAQBAJ&lpg=PP1&ots=bgvs7mAGB3&dq=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&lr&pg=PP1#v=onepage&q=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&f=false" target="_blank" style="color: #555555; text-decoration: underline; display: inline; font-style: italic;">
+            <a href="https://books.google.co.in/books?id=MjoEEAAAQBAJ&lpg=PP1&ots=bgvs7mAGB3&dq=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&lr&pg=PP1#v=onepage&q=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&f=false" target="_blank" style="text-decoration: underline; display: inline; font-style: italic;">
                 Machine learning guide for oil and gas using Python
             </a>. 
         Gulf Professional Publishing.
         </p>
         <p class="reference-item">2. Saleh, K., Mabrouk, W. M., & Metwally, A. (2025).
-            <a href="https://doi.org/10.1038/s41598-025-97938-9" target="_blank" style="color: #555555; text-decoration: underline; display: inline; font-style: italic;">
+            <a href="https://doi.org/10.1038/s41598-025-97938-9" target="_blank" style="text-decoration: underline; display: inline; font-style: italic;">
                 Machine learning model optimization for compressional sonic log prediction using well logs in Shahd SE field, Western Desert, Egypt
             </a>
              <span style="font-style: italic;">Scientific Reports</span>, <span style="font-style: italic;">15</span>(1), 14957

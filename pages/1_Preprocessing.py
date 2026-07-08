@@ -179,7 +179,6 @@ footer_html="""
     margin: 0 0 20px 0;
     font-size: 14px;
     text-align: left;
-    color: #333333;
 }
 
 .reference-box{
@@ -192,7 +191,6 @@ footer_html="""
 .reference-title{
     font-size: 14px;
     font-weight: bold;
-    color: #333333;
     margin-bottom: 8px;
 
 }
@@ -201,7 +199,6 @@ footer_html="""
 .reference-item a,
 .reference-item span{
     font-size: 10px !important;
-    color: #555555;
     line-height: 1.5;
 }
 .reference-item{
@@ -218,13 +215,13 @@ footer_html="""
         </p>
         <div class="reference-title">References</div>
         <p class="reference-item"> 1. Belyadi, H., & Haghighat, A. (2021).
-            <a href="https://books.google.co.in/books?id=MjoEEAAAQBAJ&lpg=PP1&ots=bgvs7mAGB3&dq=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&lr&pg=PP1#v=onepage&q=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&f=false" target="_blank" style="color: #555555; text-decoration: underline; display: inline; font-style: italic;">
+            <a href="https://books.google.co.in/books?id=MjoEEAAAQBAJ&lpg=PP1&ots=bgvs7mAGB3&dq=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&lr&pg=PP1#v=onepage&q=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&f=false" target="_blank" style="text-decoration: underline; display: inline; font-style: italic;">
                 Machine learning guide for oil and gas using Python
             </a>. 
         Gulf Professional Publishing.
         </p>
         <p class="reference-item">2. Saleh, K., Mabrouk, W. M., & Metwally, A. (2025).
-            <a href="https://doi.org/10.1038/s41598-025-97938-9" target="_blank" style="color: #555555; text-decoration: underline; display: inline; font-style: italic;">
+            <a href="https://doi.org/10.1038/s41598-025-97938-9" target="_blank" style="text-decoration: underline; display: inline; font-style: italic;">
                 Machine learning model optimization for compressional sonic log prediction using well logs in Shahd SE field, Western Desert, Egypt
             </a>
              <span style="font-style: italic;">Scientific Reports</span>, <span style="font-style: italic;">15</span>(1), 14957
