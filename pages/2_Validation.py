@@ -9,7 +9,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.figure_factory as ff  
 import sklearn.metrics as metrics
-st.title("Overview of Data Preprocessing for Shear Wave and Compression Wave Travel Time Prediction")
+st.title("Data Validation")
 #st.write("Hello! This is a demo on capability of Machine Learning models to predict shear wave and compression wave travel times.")
 #uploaded_file = st.file_uploader("Upload your well log data in Excel format", type=["xlsx"])
 

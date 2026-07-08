@@ -13,11 +13,11 @@ st.title("ML based Prediction of Shear Wave and Compression Wave Travel Times")
 st.subheader("Introduction")
 intro_text="""
 <p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">
-    The application demonstrates the use of Machine Learning models to predict shear wave and compression wave travel times.
+    The application demonstrates the use of Machine Learning (ML) models to predict shear wave and compression wave travel times.
 </p>
 """
 st.markdown(intro_text, unsafe_allow_html=True)
-#st.write("The application demonstrates the use of Machine Learning models to predict shear wave and compression wave travel times. ")
+#st.write("The application demonstrates the use of Machine Learning (ML) models to predict shear wave and compression wave travel times. ")
 st.subheader("Background")
 background_text="""
 <p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">Geologists, geophysicists, petrophysicists, and petroleum engineers rely heavily on compressional sonic logs for subsurface characterization.
@@ -44,6 +44,23 @@ objective_text="""
 </p>
 """
 st.markdown(objective_text, unsafe_allow_html=True)
+
+st.subheader("Methodology")
+methodology_text="""
+<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">
+    <ul style="margin-top: 5px; padding-left: 20px;">
+        <li><strong>Data Preprocessing:</strong> Preprocess the data for implementation of ML model. Check for details on our <a href="/Preprocessing" target="_blank" style="color: #0066cc; font-weight: bold;"> Preprocessing Page</a>.</li>
+        <li><strong>Model Selection and Validation:</strong> Select a ML model and calculate the following:
+            <ul style="margin-top: 5px; margin-bottom: 5px; padding-left: 20px; list-style-type: circle;">
+                <li>Model Performance by Coefficient of Determination (R<sup>2</sup>)</li>
+                <li>Error Quantification by Mean Absolute Error (MAE), Mean Square Error (MSE) and Root Mean Square Error (RMSE)</li>
+            </ul>
+            You can check for performance of model: <strong>Support Vector Machine (SVM)</strong> on our <a href="/Validation" target="_blank" style="color: #0066cc; font-weight: bold;">Model Validation Page</a>
+        </li>
+    </ul>
+</p>
+"""
+st.markdown(methodology_text, unsafe_allow_html=True)
 #uploaded_file = st.file_uploader("Upload your well log data in Excel format", type=["xlsx"])
 
 FILE_ID = "16pEh2CX7mCW80TnAeP0WgmMIxgcbiadT"
@@ -96,21 +113,28 @@ if uploaded_file is not None:
         st.subheader("Results")
         #st.write("Adjust the features below to view the predicted shear wave and compression wave travel times based on the trained model.")
         results_text="""
-        <p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> Adjust the petrophysical well data below to predict 
-        shear wave and compression wave travel times based on the trained model. 
+        <p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;"> You can adjust the petrophysical well data by using the sliders below to predict 
+        shear wave and compression wave travel times. 
         </p>
         """
         st.markdown(results_text, unsafe_allow_html=True)
+
+        
         depth_min, depth_max = float(X_raw['Depth'].min()), float(X_raw['Depth'].max())
         res_min, res_max = float(X_raw['Resistivity'].min()), float(X_raw['Resistivity'].max())
         gr_min, gr_max = float(X_raw['Gamma Ray'].min()), float(X_raw['Gamma Ray'].max())
         tporo_min, tporo_max = float(X_raw['Total Porosity'].min()), float(X_raw['Total Porosity'].max())
         bude_min, bude_max = float(X_raw['Bulk Density'].min()), float(X_raw['Bulk Density'].max())
-        depth_res = st.slider("Select Depth (ft)", min_value=depth_min, max_value=depth_max, value=(depth_min + depth_max) / 2, step=100.00)
-        user_res = st.slider("Select Resistivity (ohm-m)", min_value=res_min, max_value=res_max, value=(res_min + res_max) / 2, step=100.00)
-        user_gr = st.slider("Select Gamma Ray (API)", min_value=gr_min, max_value=gr_max, value=(gr_min + gr_max) / 2, step=25.00)
-        user_tporo = st.slider("Select Total Porosity", min_value=tporo_min, max_value=tporo_max, value=(tporo_min + tporo_max) / 2, step=0.01)
-        user_bude = st.slider("Select Bulk Density (g/cm$^3$)", min_value=bude_min, max_value=bude_max, value=(bude_min + bude_max) / 2, step=0.1)
+        
+        col_left, col_right = st.columns(2)
+        with col_left:
+            depth_res = st.slider("Select Depth (ft)", min_value=depth_min, max_value=depth_max, value=(depth_min + depth_max) / 2, step=100.00)
+            user_res = st.slider("Select Resistivity (ohm-m)", min_value=res_min, max_value=res_max, value=(res_min + res_max) / 2, step=100.00)
+            user_gr = st.slider("Select Gamma Ray (API)", min_value=gr_min, max_value=gr_max, value=(gr_min + gr_max) / 2, step=25.00)
+        
+        with col_right:
+            user_tporo = st.slider("Select Total Porosity", min_value=tporo_min, max_value=tporo_max, value=(tporo_min + tporo_max) / 2, step=0.01)
+            user_bude = st.slider("Select Bulk Density (g/cm³)", min_value=bude_min, max_value=bude_max, value=(bude_min + bude_max) / 2, step=0.1)
 
         if st.button("Predict Shear and Compression Wave Travel Times"):
             custom_input_df = pd.DataFrame({
