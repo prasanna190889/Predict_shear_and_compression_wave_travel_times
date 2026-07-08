@@ -9,8 +9,23 @@ import streamlit as st
 import plotly.express as px
 import plotly.figure_factory as ff  
 import sklearn.metrics as metrics
-st.title("Overview of Data Preprocessing for Shear Wave and Compression Wave Travel Time Prediction")
-#st.write("Hello! This is a demo on capability of Machine Learning models to predict shear wave and compression wave travel times.")
+st.title("ML based Prediction of Shear Wave and Compression Wave Travel Times")
+st.subheader("Introduction")
+intro_text="""
+<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">
+    The application demonstrates the use of Machine Learning models to predict shear wave and compression wave travel times.
+</p>
+"""
+st.markdown(intro_text, unsafe_allow_html=True)
+#st.write("The application demonstrates the use of Machine Learning models to predict shear wave and compression wave travel times. ")
+st.subheader("Background")
+background_text="""
+<p style="text-align: justify; font-size: 15px; line-height: 1.6; color: #333333;">Geologists, geophysicists, petrophysicists, and petroleum engineers rely heavily on compressional sonic logs for subsurface characterization.
+These logs measure acoustic compressional (P-wave) and shear (S-wave) travel times through the subsurface, offering key data on formation lithology, porosity, and mechanical properties.
+Petroleum engineers leverage compressional sonic logs to analyze wellbore stability, identify fractures, and optimize drilling operations in real time.
+</p>
+"""
+st.markdown(background_text, unsafe_allow_html=True)
 #uploaded_file = st.file_uploader("Upload your well log data in Excel format", type=["xlsx"])
 
 FILE_ID = "16pEh2CX7mCW80TnAeP0WgmMIxgcbiadT"
@@ -67,11 +82,11 @@ if uploaded_file is not None:
         gr_min, gr_max = float(X_raw['Gamma Ray'].min()), float(X_raw['Gamma Ray'].max())
         tporo_min, tporo_max = float(X_raw['Total Porosity'].min()), float(X_raw['Total Porosity'].max())
         bude_min, bude_max = float(X_raw['Bulk Density'].min()), float(X_raw['Bulk Density'].max())
-        depth_res = st.slider("Select Depth (m)", min_value=depth_min, max_value=depth_max, value=(depth_min + depth_max) / 2, step=100.00)
+        depth_res = st.slider("Select Depth (ft)", min_value=depth_min, max_value=depth_max, value=(depth_min + depth_max) / 2, step=100.00)
         user_res = st.slider("Select Resistivity (ohm-m)", min_value=res_min, max_value=res_max, value=(res_min + res_max) / 2, step=100.00)
         user_gr = st.slider("Select Gamma Ray (API)", min_value=gr_min, max_value=gr_max, value=(gr_min + gr_max) / 2, step=25.00)
         user_tporo = st.slider("Select Total Porosity", min_value=tporo_min, max_value=tporo_max, value=(tporo_min + tporo_max) / 2, step=0.01)
-        user_bude = st.slider("Select Bulk Density (kg/m$^3$)", min_value=bude_min, max_value=bude_max, value=(bude_min + bude_max) / 2, step=0.1)
+        user_bude = st.slider("Select Bulk Density (g/cm$^3$)", min_value=bude_min, max_value=bude_max, value=(bude_min + bude_max) / 2, step=0.1)
 
         if st.button("Predict Shear and Compression Wave Travel Times"):
             custom_input_df = pd.DataFrame({
@@ -96,3 +111,71 @@ if uploaded_file is not None:
 
 else: 
     st.info("Please upload a well log data file in Excel format to proceed with the analysis.")
+
+footer_html="""
+<style>
+.custom-footer {
+    margin-top: 60px;
+    width: 100%;
+    background-color: transparent;
+    padding-bottom: 20px;
+    font-family: sans-serif;
+}
+.footer-main-line {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    text-align: left;
+    color: #333333;
+}
+
+.reference-box{
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.reference-title{
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 8px;
+
+}
+
+.reference-item,
+.reference-item a,
+.reference-item span{
+    font-size: 10px !important;
+    color: #555555;
+    line-height: 1.5;
+}
+.reference-item{
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+}
+</style>
+<div class="custom-footer">
+    <div class="reference-box">
+        <p class="footer-main-line">
+            <a href="https://www.linkedin.com/in/prasanna-perumal-pp/" target="_blank" style="color: #0a66c2; text-decoration: none; font-weight: bold; display: inline-block">
+            Prasanna Perumal</a>, 
+            Research Scholar, Indian Institute of Technology Kharagpur | © 2026 
+        </p>
+        <div class="reference-title">References</div>
+        <p class="reference-item"> 1. Belyadi, H., & Haghighat, A. (2021).
+            <a href="https://books.google.co.in/books?id=MjoEEAAAQBAJ&lpg=PP1&ots=bgvs7mAGB3&dq=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&lr&pg=PP1#v=onepage&q=machine%20learning%20guide%20for%20oil%20and%20gas%20using%20python&f=false" target="_blank" style="color: #555555; text-decoration: underline; display: inline; font-style: italic;">
+                Machine learning guide for oil and gas using Python
+            </a>. 
+        Gulf Professional Publishing.
+        </p>
+        <p class="reference-item">2. Saleh, K., Mabrouk, W. M., & Metwally, A. (2025).
+            <a href="https://doi.org/10.1038/s41598-025-97938-9" target="_blank" style="color: #555555; text-decoration: underline; display: inline; font-style: italic;">
+                Machine learning model optimization for compressional sonic log prediction using well logs in Shahd SE field, Western Desert, Egypt
+            </a>
+             <span style="font-style: italic;">Scientific Reports</span>, <span style="font-style: italic;">15</span>(1), 14957
+        </p>
+    </div>       
+</div>
+"""
+st.markdown(footer_html, unsafe_allow_html=True)
